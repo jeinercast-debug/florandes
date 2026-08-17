@@ -1,0 +1,89 @@
+/* FLORANDES — tokens del design system v2.
+   Paleta verde oscuro / verde acento, tipografía Fraunces + Public Sans + EB Garamond.
+   Fuentes servidas locales para arranque sin red. */
+
+/* ── Fuentes ─────────────────────────────────────────────────────────── */
+@font-face{font-family:'Fraunces';src:url('../assets/fonts/Fraunces-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Fraunces';src:url('../assets/fonts/Fraunces-Italic.ttf') format('truetype');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'Fraunces';src:url('../assets/fonts/Fraunces-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Fraunces';src:url('../assets/fonts/Fraunces-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap}
+
+@font-face{font-family:'EB Garamond';src:url('../assets/fonts/EBGaramond-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'EB Garamond';src:url('../assets/fonts/EBGaramond-Italic.ttf') format('truetype');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'EB Garamond';src:url('../assets/fonts/EBGaramond-Medium.ttf') format('truetype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'EB Garamond';src:url('../assets/fonts/EBGaramond-MediumItalic.ttf') format('truetype');font-weight:500;font-style:italic;font-display:swap}
+@font-face{font-family:'EB Garamond';src:url('../assets/fonts/EBGaramond-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'EB Garamond';src:url('../assets/fonts/EBGaramond-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap}
+
+@font-face{font-family:'Public Sans';src:url('../assets/fonts/PublicSans-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Public Sans';src:url('../assets/fonts/PublicSans-Italic.ttf') format('truetype');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'Public Sans';src:url('../assets/fonts/PublicSans-Medium.ttf') format('truetype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Public Sans';src:url('../assets/fonts/PublicSans-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Public Sans';src:url('../assets/fonts/PublicSans-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap}
+
+@font-face{font-family:'IBM Plex Mono';src:url('../assets/fonts/IBMPlexMono-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'IBM Plex Mono';src:url('../assets/fonts/IBMPlexMono-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:swap}
+
+:root{
+  /* ── Color ─────────────────────────────────────────────────────────── */
+  /* Verde oscuro (primario): #1A4731 */
+  --verde-900:#0a1e14;--verde-800:#0f2a1d;--verde-700:#143824;--verde-600:#17402b;--verde-500:#1A4731;--verde-400:#2d6b4a;--verde-300:#4a9a6f;--verde-200:#8ec5a4;--verde-100:#c8e4d4;--verde-50:#eaf5ef;
+
+  /* Verde acento (secundario): #34C759 */
+  --acento-900:#0f3d1b;--acento-800:#165a28;--acento-700:#1d7835;--acento-600:#259f43;--acento-500:#34C759;--acento-400:#5dd47a;--acento-300:#87e09d;--acento-200:#b3ecc2;--acento-100:#daf6e1;--acento-50:#edfbf0;
+
+  /* Dorado (insignia): #C2923B */
+  --dorado-900:#4a380f;--dorado-700:#7a5d1a;--dorado-600:#9e7828;--dorado-500:#C2923B;--dorado-400:#d1a85e;--dorado-300:#dfbf83;--dorado-200:#ebd6ad;--dorado-100:#f5edd6;--dorado-50:#fbf7ed;
+
+  /* Morado (nuevo): #7B3AFF */
+  --morado-500:#7B3AFF;--morado-400:#956aff;--morado-300:#af9aff;--morado-200:#cfbfff;--morado-100:#e8dfff;--morado-50:#f5f1ff;
+
+  /* Cyan (tarjeta Identificar): #4FC3F7 */
+  --cyan-500:#4FC3F7;--cyan-400:#72cffa;--cyan-100:#d6eefa;--cyan-50:#edf8fe;
+
+  /* Lima (tarjeta Clave): #C6E94B */
+  --lima-500:#C6E94B;--lima-400:#d5ef77;--lima-100:#f0f8d5;--lima-50:#f8fceb;
+
+  /* Neutrales */
+  --neutral-950:#1A1A1A;--neutral-900:#262626;--neutral-800:#333333;--neutral-700:#4d4d4d;--neutral-600:#666666;--neutral-500:#808080;--neutral-400:#a6a6a6;--neutral-300:#cccccc;--neutral-200:#e5e5e5;--neutral-100:#f2f2f2;--neutral-50:#f9f9f9;--neutral-0:#ffffff;
+
+  /* Semánticos */
+  --red-500:#FF3B30;--red-100:#ffe5e3;--amber-500:#FF9500;--amber-100:#fff3dd;--green-500:var(--acento-500);--green-100:var(--acento-100);--blue-500:#007AFF;--blue-100:#d6ebff;
+
+  /* Aliases */
+  --color-primary:var(--verde-500);--color-primary-hover:var(--verde-600);--color-primary-press:var(--verde-700);--color-primary-soft:var(--verde-100);
+  --color-secondary:var(--acento-500);--color-secondary-hover:var(--acento-600);--color-secondary-press:var(--acento-700);--color-secondary-soft:var(--acento-100);
+  --color-accent:var(--dorado-500);--color-accent-hover:var(--dorado-600);--color-accent-press:var(--dorado-700);--color-accent-soft:var(--dorado-100);
+
+  --text-primary:var(--neutral-950);--text-secondary:var(--neutral-600);--text-muted:var(--neutral-500);--text-on-primary:var(--neutral-0);--text-on-dark:var(--neutral-100);--text-link:var(--verde-500);--text-link-hover:var(--verde-600);
+  --surface-page:var(--neutral-0);--surface-canvas:var(--neutral-50);--surface-card:var(--neutral-0);--surface-sunken:var(--neutral-100);--surface-inverse:var(--neutral-950);--surface-overlay:color-mix(in oklab,var(--neutral-950) 55%,transparent);
+  --border-subtle:var(--neutral-200);--border-default:var(--neutral-300);--border-strong:var(--neutral-500);--border-focus:var(--verde-500);
+  --status-success:var(--green-500);--status-success-soft:var(--green-100);--status-warning:var(--amber-500);--status-warning-soft:var(--amber-100);--status-danger:var(--red-500);--status-danger-soft:var(--red-100);--status-info:var(--blue-500);--status-info-soft:var(--blue-100);
+
+  /* ── Tipografía ────────────────────────────────────────────────────── */
+  --font-display:'Fraunces',Georgia,serif;
+  --font-serif:'EB Garamond',Georgia,serif;
+  --font-sans:'Public Sans',-apple-system,'Segoe UI',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+  --font-body:var(--font-sans);
+  --text-2xs:12px;--text-xs:13px;--text-sm:15px;--text-md:17px;--text-lg:20px;--text-xl:24px;--text-2xl:30px;--text-3xl:38px;--text-4xl:48px;--text-5xl:64px;--text-6xl:84px;
+  --leading-tight:1.08;--leading-snug:1.25;--leading-normal:1.45;--leading-relaxed:1.65;
+  --tracking-tight:-0.02em;--tracking-normal:0;--tracking-wide:0.04em;--tracking-wider:0.12em;
+  --weight-regular:400;--weight-medium:500;--weight-semibold:600;--weight-bold:700;
+
+  /* ── Espaciado ─────────────────────────────────────────────────────── */
+  --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:20px;--space-6:24px;--space-7:32px;--space-8:40px;--space-9:56px;--space-10:72px;--space-11:96px;--space-12:128px;
+  --container-max:1200px;--container-narrow:760px;
+
+  /* ── Efectos ───────────────────────────────────────────────────────── */
+  --radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:22px;--radius-pill:999px;
+  --shadow-sm:0 1px 2px color-mix(in oklab,var(--neutral-950) 8%,transparent);
+  --shadow-md:0 4px 16px color-mix(in oklab,var(--neutral-950) 10%,transparent);
+  --shadow-lg:0 16px 40px color-mix(in oklab,var(--neutral-950) 16%,transparent);
+  --shadow-focus:0 0 0 3px var(--verde-200);
+  --ease-standard:cubic-bezier(.4,0,.2,1);
+  --ease-out:cubic-bezier(0,0,.2,1);
+  --duration-fast:120ms;
+  --duration-base:200ms;
+  --duration-slow:340ms;
+}

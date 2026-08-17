@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="theme-color" content="#1A4731">
+<meta name="description" content="Identificación de flora del bosque andino de Antioquia, con o sin señal.">
+<title>Florandes</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="assets/icono-192.png">
+<!-- Public Sans es mejora progresiva: si no hay señal, cae a la fuente del
+     sistema. Fraunces y EB Garamond van locales (tokens.css). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="app">
+  <div id="cinta" class="cinta-offline oculto" role="status" aria-live="polite"></div>
+  <main id="vista" aria-live="polite"></main>
+  <button id="fab" class="fab" type="button" aria-label="Registrar observación"></button>
+  <nav id="nav" class="nav-inferior" aria-label="Navegación principal"></nav>
+</div>
+<div id="toasts" aria-live="assertive"></div>
+
+<!-- Dataset (dato puro) -->
+<script src="data/dataset.js"></script>
+
+<!-- Núcleo -->
+<script src="js/util.js"></script>
+<script src="js/almacen.js"></script>
+<script src="js/datos.js"></script>
+<script src="js/clave.js"></script>
+<script src="js/observaciones.js"></script>
+<script src="js/ia.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+
+<!-- Pantallas -->
+<script src="js/pantallas/onboarding.js"></script>
+<script src="js/pantallas/inicio.js"></script>
+<script src="js/pantallas/especies.js"></script>
+<script src="js/pantallas/especie.js"></script>
+<script src="js/pantallas/clave.js"></script>
+<script src="js/pantallas/capturar.js"></script>
+<script src="js/pantallas/observaciones.js"></script>
+<script src="js/pantallas/observacion.js"></script>
+<script src="js/pantallas/perfil.js"></script>
+
+<script>window.addEventListener('DOMContentLoaded', function () { window.App.iniciar(); });</script>
+</body>
+</html>
