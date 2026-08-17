@@ -264,8 +264,8 @@
       aviso = 'Sin foto, la observación se guarda con sus candidatos regionales, pero no entra a la cola de identificación.';
     } else if (!navigator.onLine) {
       aviso = 'Sin señal: la identificación asistida queda pendiente y se resolverá sola al reconectar.';
-    } else if (!ajustes.claveAnthropic) {
-      aviso = 'Falta tu clave de Anthropic. La captura queda encolada y se resolverá cuando la agregues.';
+    } else if (!ajustes.claveAnthropic && !ajustes.clavePlantNet) {
+      aviso = 'Falta tu clave de PlantNet o Anthropic. La captura queda encolada y se resolverá cuando la agregues.';
     } else {
       aviso = 'La identificación asistida empieza apenas guardes.';
     }

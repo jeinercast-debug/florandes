@@ -221,14 +221,30 @@
         throw ErrorIA('sin_foto', 'Esta observación no tiene fotos para identificar.', true);
       }
       return plantnet(blobs, ajustes.clavePlantNet).then(function (sugerencias) {
-        return anthropic(obs, blobs, candidatosOffline, ajustes, sugerencias)
-          .then(function (respuesta) {
-            return { respuesta: respuesta, plantnet: sugerencias };
-          });
+        if (ajustes.claveAnthropic) {
+          return anthropic(obs, blobs, candidatosOffline, ajustes, sugerencias)
+            .then(function (respuesta) {
+              return { respuesta: respuesta, plantnet: sugerencias, soloPlantNet: false };
+            });
+        }
+        if (sugerencias.length) {
+          return {
+            respuesta: {
+              candidatos: sugerencias.map(function (s) {
+                return { nc: s.nc, comun: s.comunes && s.comunes[0] || '', confianza: s.confianza, razones: ['Identificación visual PlantNet' + (s.familia ? ' — familia ' + s.familia : '')] };
+              }),
+              resumen: 'Identificación con PlantNet (sin verificación de Claude). Resultados basados en reconocimiento visual global.',
+              caracter_que_resolveria: ''
+            },
+            plantnet: sugerencias,
+            soloPlantNet: true
+          };
+        }
+        throw ErrorIA('servicio', 'PlantNet no devolvió resultados. Intenta con otra foto más clara.');
       });
     }).then(function (paquete) {
       var propuestas = (paquete.respuesta.candidatos || []).map(function (c) {
-        return { nc: c.nc, comun: c.comun, confianza: c.confianza, razones: c.razones || [], origen: 'ia' };
+        return { nc: c.nc, comun: c.comun, confianza: c.confianza, razones: c.razones || [], origen: paquete.soloPlantNet ? 'plantnet' : 'ia' };
       });
       var anclados = Clave.anclar(propuestas, obs.chars, { altitud: obs.alt });
 
@@ -249,7 +265,7 @@
           resumen: paquete.respuesta.resumen || '',
           caracterQueResolveria: paquete.respuesta.caracter_que_resolveria || '',
           plantnet: paquete.plantnet,
-          modelo: ajustes.modelo || MODELO_POR_DEFECTO
+          modelo: paquete.soloPlantNet ? 'PlantNet' : (ajustes.modelo || MODELO_POR_DEFECTO)
         }
       });
       avisar({ tipo: 'resuelta', obs: obs.id });
@@ -273,7 +289,7 @@
   /* ── Trabajador de la cola ─────────────────────────────────────────── */
   function puedeTrabajar() {
     var ajustes = Almacen.ajustes();
-    return navigator.onLine && !!ajustes.claveAnthropic && ajustes.resolverSolo !== false;
+    return navigator.onLine && (!!ajustes.claveAnthropic || !!ajustes.clavePlantNet) && ajustes.resolverSolo !== false;
   }
 
   function procesar() {

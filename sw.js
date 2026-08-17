@@ -2,7 +2,7 @@
    Cachea el shell para que la app arranque sin señal. Las llamadas a las APIs
    externas (Anthropic, PlantNet, iNaturalist, Google Fonts) nunca se interceptan
    como cache-first: se dejan pasar a la red. */
-var CACHE = 'florandes-v2';
+var CACHE = 'florandes-v3';
 var SHELL = [
   './',
   './index.html',

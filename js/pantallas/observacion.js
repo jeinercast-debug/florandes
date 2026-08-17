@@ -117,7 +117,7 @@
       var detalle = !navigator.onLine
         ? 'Sin señal. Se resolverá sola apenas reconectes.'
         : (!global.IA.puedeTrabajar()
-          ? 'Falta tu clave de Anthropic (Perfil › Claves de API). Queda encolada.'
+          ? 'Falta tu clave de PlantNet o Anthropic (Perfil › Claves de API). Queda encolada.'
           : 'En cola. Empieza en breve.');
       return UI.card('<div class="cola"><span class="cola__icono">' + U.Icono.reloj(20) + '</span>' +
         '<span class="cola__texto"><b>Identificación asistida pendiente</b><span>' + h(detalle) + '</span></span></div>' +
